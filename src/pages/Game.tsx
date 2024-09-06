@@ -61,6 +61,8 @@ export function Game() {
                   data: 1,
                   risk: risk,
                 });
+                console.log(response);
+                
                 if (ballManager) {
                   ballManager.addBall(response.data.point);
                   const { multiplier } = response.data
