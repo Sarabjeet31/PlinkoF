@@ -9,7 +9,7 @@ export function Game() {
   const canvasRef = useRef<any>();
   const [money, setMoney] = useState<number>(1234);
   const [betPerBall, setBetPerBall] = useState<number>(0);
-  const [ans, setans] = useState<number>(0);
+  // const [ans, setans] = useState<number>(0);
   const [risk, setRisk] = useState<'low' | 'medium' | 'high'>('low');
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export function Game() {
                 if (ballManager) {
                   ballManager.addBall(response.data.point);
                   const { multiplier } = response.data
-                  setans(multiplier)
+                  // setans(multiplier)
                   const moneyToBeAdded = money + multiplier * betPerBall - betPerBall;
                   setMoney(moneyToBeAdded)
                 }

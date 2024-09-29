@@ -1,1 +1,1 @@
-export const baseURL = "https://plinko-backend-five.vercel.app/";
+export const baseURL = "http://localhost:3000";
