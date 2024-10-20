@@ -6,7 +6,7 @@ import { pad } from "../game/padding";
 
 export function Simulation() {
     const canvasRef = useRef<any>();
-    let [outputs, setOutputs] = useState<{[key: number]: number[]}>({
+    const [outputs, setOutputs] = useState<{[key: number]: number[]}>({
         0: [],
         1: [],
         2: [],

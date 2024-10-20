@@ -6,7 +6,7 @@ import { baseURL } from "../utils";
 
 export function Game() {
   const [ballManager, setBallManager] = useState<BallManager>();
-  const canvasRef = useRef<any>();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [money, setMoney] = useState<number>(1234);
   const [betPerBall, setBetPerBall] = useState<number>(0);
   // const [ans, setans] = useState<number>(0);
@@ -22,11 +22,12 @@ export function Game() {
     }
   }, [canvasRef, risk]);
 
-  const changeBet = (e: any) => {
-    setBetPerBall(e.target.value)
+  const changeBet = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBetPerBall(Number(e.target.value))
   }
-  const handleRisk = (e: any) => {
-    setRisk(e.target.value)
+  const handleRisk = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value as "low" | "medium" | "high"; // Cast to the expected union type
+    setRisk(value);
   }
 
   return (
