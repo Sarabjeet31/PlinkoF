@@ -4,8 +4,8 @@ import { WIDTH } from "../game/constants";
 import { pad } from "../game/padding";
 
 export function Simulation() {
-  const canvasRef = useRef<any>();
-  let [outputs, setOutputs] = useState<{ [key: number]: number[] }>({
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [outputs, setOutputs] = useState<{ [key: number]: number[] }>({
     0: [],
     1: [],
     2: [],
@@ -28,8 +28,9 @@ export function Simulation() {
 
   async function simulate(ballManager: BallManager) {
     let i = 0;
+    // eslint-disable-next-line no-constant-condition
     while (1) {
-      i++;
+      i = i + 1;
       ballManager.addBall(pad(WIDTH / 2 + 20 * (Math.random() - 0.5)));
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
@@ -39,8 +40,9 @@ export function Simulation() {
     if (canvasRef.current) {
       const ballManager = new BallManager(
         canvasRef.current as unknown as HTMLCanvasElement,
+        "",
         (index: number, startX?: number) => {
-          setOutputs((outputs: any) => {
+          setOutputs((outputs: { [key: number]: number[] }) => {
             return {
               ...outputs,
               [index]: [...(outputs[index] as number[]), startX],

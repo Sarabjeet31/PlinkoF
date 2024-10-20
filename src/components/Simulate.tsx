@@ -44,6 +44,7 @@ export const Simulate = () => {
     if (canvasRef.current) {
       const ballManager = new BallManager(
         canvasRef.current as unknown as HTMLCanvasElement,
+        "",
         (index: number, startX?: number) => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           setOutputs((outputs: any) => {

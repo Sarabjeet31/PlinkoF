@@ -68,7 +68,7 @@ export class BallManager {
             this.ctx.fillRect(sink.x, sink.y - sink.height / 2, sink.width - SPACING, sink.height);
             this.ctx.fillStyle = this.getColor(i).color;
             this.ctx.fillText((sink?.multiplier)?.toString() + "x", sink.x - 15 + sinkWidth / 2, sink.y);
-        };
+        }
     }
 
     draw() {
